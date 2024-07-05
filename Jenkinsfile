@@ -1,21 +1,20 @@
-/*
-pipeline {
-    agent any
-    environment {
-        SCANNER_HOME = tool 'sonar-scanner'
+//pipeline {
+   // agent any
+    //environment {
+       // SCANNER_HOME = tool 'sonar-scanner'
 
-   }
+ //  }
 
-    stages {
-            stage('SonarQube') {
-             steps {
-                withSonarQubeEnv('sonar-scanner') {
-                    sh '''$SCANNER_HOME/bin/sonar-scanner -Dsonar.projectKey=Microservice-Deployement -Dsonar.ProjectName=Microservice-Deployement -Dsonar.java.binaries=.'''
-                }
-            }
-        }
-        */
-            stage('adservice') {
+    //stages {
+           // stage('SonarQube') {
+           //  steps {
+               // withSonarQubeEnv('sonar-scanner') {
+             //       sh '''$SCANNER_HOME/bin/sonar-scanner -Dsonar.projectKey=Microservice-Deployement -Dsonar.ProjectName=Microservice-Deployement -Dsonar.java.binaries=.'''
+             //   }
+          //  }
+       // }
+     
+        stage('adservice') {
               steps {
                script {
                  withDockerRegistry(credentialsId: 'dockerpass', toolName: 'docker') {
