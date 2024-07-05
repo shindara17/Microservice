@@ -8,7 +8,7 @@ pipeline {
     stages {
             stage('SonarQube') {
              steps {
-                withSonarQubeEnv('sonar-scanner') {
+                withSonarQubeEnv('sonar-server') {
                     sh '''$SCANNER_HOME/bin/sonar-scanner -Dsonar.projectKey=Microservice_Deployment -Dsonar.ProjectName=Microservice_Deployment -Dsonar.java.binaries=.'''
                 }
             }
