@@ -9,7 +9,7 @@ pipeline {
             stage('SonarQube') {
              steps {
                 withSonarQubeEnv('sonar-scanner') {
-                    sh '''$SCANNER_HOME/bin/sonar-scanner -Dsonar.projectKey=Microservice_Deployment -Dsonar.ProjectName=Microservice_Deployment -Dsonar.java.binaries=.'''
+                    sh '''$SCANNER_HOME/bin/sonar-scanner -Dsonar.projectKey=Microservice_Deployment -Dsonar.ProjectName=Microservice-Deployment -Dsonar.java.binaries=.'''
                 }
             }
         }
@@ -17,7 +17,7 @@ pipeline {
               steps {
                script {
                  withDockerRegistry(credentialsId: 'dockerpass', toolName: 'docker') {
-                    dir('/var/lib/jenkins/workspace/Microservice_Deployment/src/adservice/') {
+                    dir('/var/lib/jenkins/workspace/Microservice-Deployment/src/adservice/') {
                         sh "docker build -t shindara17/adservice:latest ."
                         sh "docker push shindara17/adservice:latest"
                         sh "docker rmi shindara17/adservice:latest"
@@ -31,7 +31,7 @@ pipeline {
               steps {
                script {
                  withDockerRegistry(credentialsId: 'dockerpass', toolName: 'docker') {
-                    dir("/var/lib/jenkins/workspace/Microservice_Deployment/src/cartservice/src/") {
+                    dir("/var/lib/jenkins/workspace/Microservice-Deployment/src/cartservice/src/") {
                         sh "docker build -t shindara17/cartservice:latest ."
                         sh "docker push shindara17/cartservice:latest"
                         sh "docker rmi shindara17/cartservice:latest"
@@ -45,7 +45,7 @@ pipeline {
               steps {
                script {
                  withDockerRegistry(credentialsId: 'dockerpass', toolName: 'docker') {
-                    dir("/var/lib/jenkins/workspace/Microservice_Deployment/src/checkoutservice/") {
+                    dir("/var/lib/jenkins/workspace/Microservice-Deployment/src/checkoutservice/") {
                         sh "docker build -t shindara17/checkoutservice:latest ."
                         sh "docker push shindara17/checkoutservice:latest"
                         sh "docker rmi shindara17/checkoutservice:latest"
@@ -59,7 +59,7 @@ pipeline {
               steps {
                script {
                  withDockerRegistry(credentialsId: 'dockerpass', toolName: 'docker') {
-                    dir("/var/lib/jenkins/workspace/Microservice_Deployment/src/currencyservice/") {
+                    dir("/var/lib/jenkins/workspace/Microservice-Deployment/src/currencyservice/") {
                         sh "docker build -t shindara17/currencyservice:latest ."
                         sh "docker push shindara17/currencyservice:latest"
                         sh "docker rmi shindara17/currencyservice:latest"
@@ -74,7 +74,7 @@ pipeline {
               steps {
                script {
                  withDockerRegistry(credentialsId: 'dockerpass', toolName: 'docker') {
-                    dir("/var/lib/jenkins/workspace/Microservice_Deployment/src/emailservice/") {
+                    dir("/var/lib/jenkins/workspace/Microservice-Deployment/src/emailservice/") {
                         sh "docker build -t shindara17/emailservice:latest ."
                         sh "docker push shindara17/emailservice:latest"
                         sh "docker rmi shindara17/emailservice:latest"
@@ -88,7 +88,7 @@ pipeline {
               steps {
                script {
                  withDockerRegistry(credentialsId: 'dockerpass', toolName: 'docker') {
-                    dir("/var/lib/jenkins/workspace/Microservice_Deployment/src/frontend/") {
+                    dir("/var/lib/jenkins/workspace/Microservice-Deployment/src/frontend/") {
                         sh "docker build -t shindara17/frontend:latest ."
                         sh "docker push shindara17/frontend:latest"
                         sh "docker rmi shindara17/frontend:latest"
@@ -102,7 +102,7 @@ pipeline {
               steps {
                script {
                  withDockerRegistry(credentialsId: 'dockerpass', toolName: 'docker') {
-                    dir("/var/lib/jenkins/workspace/Microservice_Deployment/src/loadgenerator/") {
+                    dir("/var/lib/jenkins/workspace/Microservice-Deployment/src/loadgenerator/") {
                         sh "docker build -t shindara17/loadgenerator:latest ."
                         sh "docker push shindara17/loadgenerator:latest"
                         sh "docker rmi shindara17/loadgenerator:latest"
@@ -116,7 +116,7 @@ pipeline {
               steps {
                script {
                  withDockerRegistry(credentialsId: 'dockerpass', toolName: 'docker') {
-                    dir("/var/lib/jenkins/workspace/Microservice_Deployment/src/paymentservice/") {
+                    dir("/var/lib/jenkins/workspace/Microservice-Deployment/src/paymentservice/") {
                         sh "docker build -t shindara17/paymentservice:latest ."
                         sh "docker push shindara17/paymentservice:latest"
                         sh "docker rmi shindara17/paymentservice:latest"
@@ -130,7 +130,7 @@ pipeline {
               steps {
                script {
                  withDockerRegistry(credentialsId: 'dockerpass', toolName: 'docker') {
-                    dir("/var/lib/jenkins/workspace/Microservice_Deployment/src/productcatalogservice/") {
+                    dir("/var/lib/jenkins/workspace/Microservice-Deployment/src/productcatalogservice/") {
                         sh "docker build -t shindara17/productcatalogservice:latest ."
                         sh "docker push shindara17/productcatalogservice:latest"
                         sh "docker rmi shindara17/productcatalogservice:latest"
@@ -144,7 +144,7 @@ pipeline {
               steps {
                script {
                  withDockerRegistry(credentialsId: 'dockerpass', toolName: 'docker') {
-                    dir("/var/lib/jenkins/workspace/Microservice_Deployment/src/recommendationservice/") {
+                    dir("/var/lib/jenkins/workspace/Microservice-Deployment/src/recommendationservice/") {
                         sh "docker build -t shindara17/recommendationservice:latest ."
                         sh "docker push shindara17/recommendationservice:latest"
                         sh "docker rmi shindara17/recommendationservice:latest"
@@ -158,7 +158,7 @@ pipeline {
               steps {
                script {
                  withDockerRegistry(credentialsId: 'dockerpass', toolName: 'docker') {
-                    dir("/var/lib/jenkins/workspace/Microservice_Deployment/src/shippingservice/") {
+                    dir("/var/lib/jenkins/workspace/Microservice-Deployment/src/shippingservice/") {
                         sh "docker build -t shindara17/shippingservice:latest ."
                         sh "docker push shindara17/shippingservice:latest"
                         sh "docker rmi shindara17/shippingservice:latest"
